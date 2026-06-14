@@ -1,68 +1,62 @@
-/* --- Global Reset & Baseline Specs --- */
+/* --- Root Core Layout Setup --- */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #FFFFFF;
     color: #000000;
-    overflow-x: hidden;
 }
 
-/* --- Header Section (Precise Replication) --- */
-.header-area {
+/* --- Top Header (Exact Copy) --- */
+.brand-header-wrap {
+    padding-left: 20px;
+    padding-top: 35px;
     position: relative;
-    padding-left: 25px;
-    padding-top: 20px;
-    height: 140px;
     width: 100%;
+    box-sizing: border-box;
 }
 
-/* Overlapping Title Text Styles */
-.title-main {
+.brand-main-title {
     font-family: "Times New Roman", Times, serif;
-    font-size: 110px;
+    font-size: 82px;
     margin: 0;
-    position: absolute;
-    left: 25px;
-    top: 5px;
-    z-index: 1;
-    letter-spacing: -2px;
+    display: inline-block;
+    font-weight: normal;
+    letter-spacing: -1px;
+    line-height: 1;
 }
 
-.title-sub {
+.brand-sub-title {
     font-family: "Times New Roman", Times, serif;
-    font-size: 38px;
-    margin: 0;
-    position: absolute;
-    left: 220px;
-    top: 65px;
-    z-index: 2;
-    white-space: nowrap;
+    font-size: 32px;
+    margin: 0 0 0 10px;
+    display: inline-block;
+    font-weight: normal;
+    vertical-align: bottom;
+    position: relative;
+    bottom: 12px;
 }
 
-/* The Solid Decorative Blue Divider Rule */
-.header-bar {
-    position: absolute;
-    top: 135px;
-    left: 0;
-    width: 715px;
-    height: 6px;
-    background-color: #5356C7;
+.brand-divider-line {
+    width: 650px;
+    height: 5px;
+    background-color: #555CC6;
+    margin-top: 15px;
+    margin-left: -20px; /* Bleeds to edge like the image */
 }
 
-/* --- Main Block Components Matrix --- */
-.cards-row {
+/* --- Card Links Row Matrix --- */
+.dashboard-cards-container {
     display: flex;
-    justify-content: flex-start;
-    gap: 55px;
-    padding-left: 78px;
-    margin-top: 50px;
+    gap: 40px;
+    padding-left: 70px;
+    margin-top: 45px;
 }
 
-.card-frame {
-    width: 212px;
-    height: 164px;
-    border-radius: 16px;
+.app-card {
+    width: 250px;
+    height: 175px;
+    border-radius: 18px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -70,125 +64,111 @@ body {
     font-family: "Times New Roman", Times, serif;
     font-size: 32px;
     color: #000000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
 
-.me-card { background-color: #5CE1E6; }
-.blogs-card { background-color: #4A4A4A; color: #FFFFFF; }
-.confession-card { background-color: #FF2E63; }
+.card-me { background-color: #7CD6FF; }
+.card-blogs { background-color: #464646; color: #FFFFFF; }
+.card-confession { background-color: #FF4D6A; }
 
-/* Circular Badges Positioning */
-.badge-node {
+/* The Floating Circular Badge Overlay nodes */
+.card-badge-overlay {
     position: absolute;
-    top: -24px;
-    right: -24px;
-    width: 58px;
-    height: 58px;
+    top: -20px;
+    right: -20px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-    background-color: #5356C7;
+    background-color: #5E56C2;
     color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* --- Media Players Flex System --- */
-.media-deck {
+/* --- Media Elements Positioning (As aligned in your layout) --- */
+.media-flex-stack {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    padding-left: 300px; /* Matches alignment point precisely */
+    gap: 30px;
+}
+
+.media-group-node {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 328px;
-    margin-top: 40px;
-    gap: 35px;
 }
 
-.media-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Capsule Tag Markers */
-.capsule-tag {
-    color: #000000;
+/* Rounded Header Pill labels */
+.pill-status-label {
     font-family: Arial, sans-serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     padding: 6px 22px;
     border-radius: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     display: inline-block;
 }
 
-.song-tag { background-color: #5356C7; color: #FFFFFF; }
-.cinema-tag { background-color: #00A8CC; color: #FFFFFF; }
+.label-music { background-color: #555CC6; color: #FFFFFF; }
+.label-cinema { background-color: #00B4D8; color: #FFFFFF; }
 
-/* Interactive Widgets */
-.music-widget-mock {
-    width: 572px;
-    height: 98px;
-    background-color: #FFEEDB;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+/* Dynamic Layout Boxes matching visual dimensions */
+.music-box-embed {
+    width: 530px;
+    height: 94px;
+    background-color: #FFF2E6;
+    border: 1px solid #F3D9C4;
+    border-radius: 2px;
 }
 
-.cinema-display-frame {
-    width: 366px;
-    height: 278px;
-    border-radius: 4px;
+.cinema-box-embed {
+    width: 340px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 2px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* --- Bottom Thumbs Mechanics --- */
-.thumbs-row {
+/* --- Floating Bottom Action Handles --- */
+.footer-thumbs-container {
     display: flex;
-    justify-content: flex-start;
     gap: 15px;
     padding-left: 10px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-.action-circle {
-    width: 56px;
-    height: 56px;
+.thumb-action-node {
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     color: #FFFFFF;
-    font-size: 26px;
+    font-size: 24px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
-.circle-down { background-color: #E94560; }
-.circle-up { background-color: #28A745; }
+.action-down { background-color: #FF4D6A; }
+.action-up { background-color: #2CA744; }
 
-/* --- First Page Styles (Kept Safe) --- */
-#homepage {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 20px;
-    box-sizing: border-box;
-}
 
+/* --- Page 1 Essential Core Rules (Preserved) --- */
+#homepage { height: 100vh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 40px 20px; box-sizing: border-box; }
 .p1-navbar { width: 100%; max-width: 1200px; display: flex; justify-content: flex-start; }
 .instagram-btn { background-color: #6D7FE4; color: white; padding: 12px 36px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: all 0.2s ease; }
-.instagram-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(109, 127, 228, 0.5); }
 .p1-center-content { text-align: center; margin-bottom: 60px; }
 .among-us-box { border: 8px solid #6D7FE4; padding: 25px 45px; border-radius: 24px; position: relative; max-width: 280px; margin: 0 auto 40px auto; font-size: 1.6em; font-weight: bold; font-style: italic; }
 .among-us-box::after { content: ''; position: absolute; bottom: -28px; left: 45px; border-width: 28px 14px 0 14px; border-style: solid; border-color: #6D7FE4 transparent transparent transparent; }
 .p1-title { font-size: 4em; margin: 20px 0 40px 0; font-weight: bold; }
 .hell-yeah-btn { background-color: #0000FF; color: white; padding: 18px 65px; border-radius: 14px; text-decoration: none; font-weight: bold; font-size: 1.6em; display: inline-block; box-shadow: 0 8px 0px #000099; transition: all 0.1s ease; }
-.hell-yeah-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 0px #000099, 0 10px 20px rgba(0, 0, 255, 0.4); }
-.hell-yeah-btn:active { transform: translateY(6px); box-shadow: 0 2px 0px #000099; }
 .p1-footer { width: 100%; color: #828282; text-align: center; font-size: 0.95em; max-width: 900px; }
 @keyframes screenStrobeAndShake { 0% { transform: translate(0, 0) scale(1); } 10% { transform: translate(-4px, 3px) scale(1.02); } 30% { transform: translate(4px, -3px) scale(1.04); } 50% { transform: translate(-5px, -2px) scale(1.06); } 70% { transform: translate(3px, 2px) scale(1.08); } 90% { transform: translate(-2px, 1px) scale(1.1); } 100% { transform: translate(0, 0) scale(1.2); opacity: 0; } }
 .epic-transition-active { animation: screenStrobeAndShake 0.6s cubic-bezier(.36,.07,.19,.97) both; background-color: #0000FF !important; pointer-events: none; }
