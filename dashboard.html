@@ -8,54 +8,52 @@
 </head>
 <body id="dashboard">
 
-    <!-- Page 2 Header Structure (Image_0.png) -->
+    <!-- Header layout inline fix -->
     <div class="p2-header-container">
         <h1 class="p2-title">Snugelf</h1>
         <h2 class="p2-subtitle">Website still under construction</h2>
     </div>
 
-    <!-- The 3 Grid Cards -->
+    <!-- 3 Component Grid Layout Blocks -->
     <div class="p2-grid-container">
-        <!-- Me Card (Blue) with Hand Icon -->
         <div class="p2-card me-card">
             Me
-            <div class="p2-icon">✋</div> <!-- Unicode hand icon -->
+            <div class="p2-icon">✋</div>
         </div>
 
-        <!-- Blogs Card (Grey) with Pen Icon -->
         <div class="p2-card blogs-card">
             Blogs
-            <div class="p2-icon">✒</div> <!-- Unicode pen icon -->
+            <div class="p2-icon">✒</div>
         </div>
 
-        <!-- Confession Box Card (Red) with Lightbulb Icon -->
         <div class="p2-card confession-card">
             Confession box
-            <div class="p2-icon">💡</div> <!-- Unicode lightbulb icon -->
+            <div class="p2-icon">💡</div>
         </div>
     </div>
 
-    <!-- Media Players Section (Spotify and Peaky Blinders) -->
+    <!-- Media Blocks Container Structure -->
     <div class="media-section">
         
-        <!-- Daily Song (We will add CMS/real player later) -->
-        <div class="player-container">
+        <!-- Left Section: Song Player Block Container -->
+        <div class="player-block">
             <span class="player-label song-label">Daily Song</span>
-            <!-- BRO: This is a placeholder for a functional player. We can embed Spotify later. -->
-            <img src="homepage.png" alt="Song Player Placeholder" style="margin-top:10px; max-width: 300px; opacity: 0.5;">
+            <div class="media-placeholder-box">
+                🎵 [Spotify Player Embed Code Vault]
+            </div>
         </div>
 
-        <!-- Last Cinema (Using Peaky Blinders image) -->
-        <div class="player-container">
+        <!-- Right Section: Peaky Blinders Media Frame -->
+        <div class="player-block">
             <span class="player-label cinema-label">Last cinema</span>
-            <!-- Displaying the provided image_0.png content -->
-            <img src="dashboard.png" alt="Last Cinema Video" style="margin-top:10px; border-radius: 10px;">
+            <!-- This renders ONLY your designated dashboard screenshot image layout inside the frame -->
+            <img src="dashboard.jpg" class="cinema-img-frame" alt="Peaky Blinders Frame Block">
         </div>
+        
     </div>
 
-    <!-- Thumbs Up/Down Section -->
+    <!-- Static Interaction Thumbs -->
     <div class="thumbs-section">
-        <!-- Per your request: these buttons are non-clickable on this page -->
         <button class="thumb-btn down-btn">👎</button>
         <button class="thumb-btn up-btn">👍</button>
     </div>
