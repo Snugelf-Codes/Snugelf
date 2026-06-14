@@ -8,52 +8,54 @@
 </head>
 <body>
 
-    <!-- Header Section (Same-to-Same Layout Stack) -->
-    <div class="header-area">
-        <h1 class="title-main">Snugelf</h1>
-        <h2 class="title-sub">Website still under construction</h2>
-        <div class="header-bar"></div>
+    <!-- Header Frame -->
+    <div class="brand-header-wrap">
+        <h1 class="brand-main-title">Snugelf</h1>
+        <h2 class="brand-sub-title">Website still under construction</h2>
+        <div class="brand-divider-line"></div>
     </div>
 
-    <!-- Main Component Cards Layout Row -->
-    <div class="cards-row">
-        <div class="card-frame me-card">
+    <!-- Component Row -->
+    <div class="dashboard-cards-container">
+        <div class="app-card card-me">
             Me
-            <div class="badge-node">✋</div>
+            <div class="card-badge-overlay">✋</div>
         </div>
 
-        <div class="card-frame blogs-card">
+        <div class="app-card card-blogs">
             Blogs
-            <div class="badge-node">✒</div>
+            <div class="card-badge-overlay">✒</div>
         </div>
 
-        <div class="card-frame confession-card">
+        <div class="app-card card-confession">
             Confession box
-            <div class="badge-node">💡</div>
+            <div class="card-badge-overlay">💡</div>
         </div>
     </div>
 
-    <!-- Media Sections Column Set -->
-    <div class="media-deck">
+    <!-- Media Section Matrix Stack -->
+    <div class="media-flex-stack">
         
-        <!-- Daily Song Section -->
-        <div class="media-item">
-            <span class="capsule-tag song-tag">Daily Song</span>
-            <div class="music-widget-mock"></div>
+        <!-- Daily Song Block Layout -->
+        <div class="media-group-node">
+            <span class="pill-status-label label-music">Daily Song</span>
+            <!-- Embedded Mock Canvas Block -->
+            <div class="music-box-embed"></div>
         </div>
 
-        <!-- Last Cinema Section (Fixed Image Asset Mapping Path) -->
-        <div class="media-item">
-            <span class="capsule-tag cinema-tag">Last cinema</span>
-            <img src="./dashboard.jpg" class="cinema-display-frame" alt="Peaky Blinders Media Capture">
+        <!-- Last Cinema Block Layout (Absolute Direct Image Path Configuration) -->
+        <div class="media-group-node">
+            <span class="pill-status-label label-cinema">Last cinema</span>
+            <!-- Dynamically references your exact root dashboard asset folder location -->
+            <img src="dashboard.jpg" class="cinema-box-embed" alt="Peaky Blinders Display Node">
         </div>
         
     </div>
 
-    <!-- Bottom Corner Action Buttons -->
-    <div class="thumbs-row">
-        <button class="action-circle circle-down">👎</button>
-        <button class="action-circle circle-up">👍</button>
+    <!-- Bottom Alignment Action Handles -->
+    <div class="footer-thumbs-container">
+        <button class="thumb-action-node action-down">👎</button>
+        <button class="thumb-action-node action-up">👍</button>
     </div>
 
 </body>
