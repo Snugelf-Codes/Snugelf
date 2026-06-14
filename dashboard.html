@@ -6,56 +6,54 @@
     <title>Snugelf's Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="dashboard">
+<body>
 
-    <!-- Header layout inline fix -->
-    <div class="p2-header-container">
-        <h1 class="p2-title">Snugelf</h1>
-        <h2 class="p2-subtitle">Website still under construction</h2>
+    <!-- Header Section (Same-to-Same Layout Stack) -->
+    <div class="header-area">
+        <h1 class="title-main">Snugelf</h1>
+        <h2 class="title-sub">Website still under construction</h2>
+        <div class="header-bar"></div>
     </div>
 
-    <!-- 3 Component Grid Layout Blocks -->
-    <div class="p2-grid-container">
-        <div class="p2-card me-card">
+    <!-- Main Component Cards Layout Row -->
+    <div class="cards-row">
+        <div class="card-frame me-card">
             Me
-            <div class="p2-icon">✋</div>
+            <div class="badge-node">✋</div>
         </div>
 
-        <div class="p2-card blogs-card">
+        <div class="card-frame blogs-card">
             Blogs
-            <div class="p2-icon">✒</div>
+            <div class="badge-node">✒</div>
         </div>
 
-        <div class="p2-card confession-card">
+        <div class="card-frame confession-card">
             Confession box
-            <div class="p2-icon">💡</div>
+            <div class="badge-node">💡</div>
         </div>
     </div>
 
-    <!-- Media Blocks Container Structure -->
-    <div class="media-section">
+    <!-- Media Sections Column Set -->
+    <div class="media-deck">
         
-        <!-- Left Section: Song Player Block Container -->
-        <div class="player-block">
-            <span class="player-label song-label">Daily Song</span>
-            <div class="media-placeholder-box">
-                🎵 [Spotify Player Embed Code Vault]
-            </div>
+        <!-- Daily Song Section -->
+        <div class="media-item">
+            <span class="capsule-tag song-tag">Daily Song</span>
+            <div class="music-widget-mock"></div>
         </div>
 
-        <!-- Right Section: Peaky Blinders Media Frame -->
-        <div class="player-block">
-            <span class="player-label cinema-label">Last cinema</span>
-            <!-- This renders ONLY your designated dashboard screenshot image layout inside the frame -->
-            <img src="dashboard.jpg" class="cinema-img-frame" alt="Peaky Blinders Frame Block">
+        <!-- Last Cinema Section (Fixed Image Asset Mapping Path) -->
+        <div class="media-item">
+            <span class="capsule-tag cinema-tag">Last cinema</span>
+            <img src="./dashboard.jpg" class="cinema-display-frame" alt="Peaky Blinders Media Capture">
         </div>
         
     </div>
 
-    <!-- Static Interaction Thumbs -->
-    <div class="thumbs-section">
-        <button class="thumb-btn down-btn">👎</button>
-        <button class="thumb-btn up-btn">👍</button>
+    <!-- Bottom Corner Action Buttons -->
+    <div class="thumbs-row">
+        <button class="action-circle circle-down">👎</button>
+        <button class="action-circle circle-up">👍</button>
     </div>
 
 </body>
