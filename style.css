@@ -1,285 +1,194 @@
-/* --- Global Styles --- */
+/* --- Global Reset & Baseline Specs --- */
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: #FFFFFF;
     color: #000000;
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
-    font-family: "Times New Roman", serif;
+/* --- Header Section (Precise Replication) --- */
+.header-area {
+    position: relative;
+    padding-left: 25px;
+    padding-top: 20px;
+    height: 140px;
+    width: 100%;
 }
 
-/* --- Page 1: index.html Layout --- */
+/* Overlapping Title Text Styles */
+.title-main {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 110px;
+    margin: 0;
+    position: absolute;
+    left: 25px;
+    top: 5px;
+    z-index: 1;
+    letter-spacing: -2px;
+}
+
+.title-sub {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 38px;
+    margin: 0;
+    position: absolute;
+    left: 220px;
+    top: 65px;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+/* The Solid Decorative Blue Divider Rule */
+.header-bar {
+    position: absolute;
+    top: 135px;
+    left: 0;
+    width: 715px;
+    height: 6px;
+    background-color: #5356C7;
+}
+
+/* --- Main Block Components Matrix --- */
+.cards-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 55px;
+    padding-left: 78px;
+    margin-top: 50px;
+}
+
+.card-frame {
+    width: 212px;
+    height: 164px;
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 32px;
+    color: #000000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.me-card { background-color: #5CE1E6; }
+.blogs-card { background-color: #4A4A4A; color: #FFFFFF; }
+.confession-card { background-color: #FF2E63; }
+
+/* Circular Badges Positioning */
+.badge-node {
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: #5356C7;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* --- Media Players Flex System --- */
+.media-deck {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 328px;
+    margin-top: 40px;
+    gap: 35px;
+}
+
+.media-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Capsule Tag Markers */
+.capsule-tag {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 6px 22px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.song-tag { background-color: #5356C7; color: #FFFFFF; }
+.cinema-tag { background-color: #00A8CC; color: #FFFFFF; }
+
+/* Interactive Widgets */
+.music-widget-mock {
+    width: 572px;
+    height: 98px;
+    background-color: #FFEEDB;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.cinema-display-frame {
+    width: 366px;
+    height: 278px;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- Bottom Thumbs Mechanics --- */
+.thumbs-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.action-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 26px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.circle-down { background-color: #E94560; }
+.circle-up { background-color: #28A745; }
+
+/* --- First Page Styles (Kept Safe) --- */
 #homepage {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    box-sizing: border-box;
     padding: 40px 20px;
-}
-
-.p1-navbar {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: flex-start;
-}
-
-/* Fixed Instagram Button Proportions */
-.instagram-btn {
-    background-color: #6D7FE4;
-    color: white;
-    padding: 12px 36px; /* Balanced width and height proportions */
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    display: inline-block;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(109, 127, 228, 0.3);
-    transition: all 0.2s ease;
-}
-
-.instagram-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(109, 127, 228, 0.5);
-}
-
-.p1-center-content {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-/* Among Us Speech Bubble Layout */
-.among-us-box {
-    border: 8px solid #6D7FE4;
-    padding: 25px 45px;
-    border-radius: 24px;
-    position: relative;
-    max-width: 280px;
-    margin: 0 auto 40px auto;
-    font-size: 1.6em;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 1.3;
-}
-
-.among-us-box::after {
-    content: '';
-    position: absolute;
-    bottom: -28px;
-    left: 45px;
-    border-width: 28px 14px 0 14px;
-    border-style: solid;
-    border-color: #6D7FE4 transparent transparent transparent;
-}
-
-.p1-title {
-    font-size: 4em;
-    margin: 20px 0 40px 0;
-    font-weight: bold;
-}
-
-/* Hell Yeah Button with Insane Effects */
-.hell-yeah-btn {
-    background-color: #0000FF;
-    color: white;
-    padding: 18px 65px;
-    border-radius: 14px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.6em;
-    display: inline-block;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 8px 0px #000099; /* 3D effect button base */
-    transition: all 0.1s ease;
-}
-
-.hell-yeah-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 0px #000099, 0 10px 20px rgba(0, 0, 255, 0.4);
-}
-
-.hell-yeah-btn:active {
-    transform: translateY(6px);
-    box-shadow: 0 2px 0px #000099;
-}
-
-.p1-footer {
-    width: 100%;
-    color: #828282;
-    text-align: center;
-    font-size: 0.95em;
-    max-width: 900px;
-    line-height: 1.4;
-}
-
-/* --- EPIC CLICK ANIMATIONS FOR HELL YEAH --- */
-@keyframes screenStrobeAndShake {
-    0% { transform: translate(0, 0) scale(1); filter: invert(0); }
-    10% { transform: translate(-4px, 3px) scale(1.02); filter: invert(0.2); }
-    30% { transform: translate(4px, -3px) scale(1.04); }
-    50% { transform: translate(-5px, -2px) scale(1.06); filter: invert(0.5); background-color: #000; }
-    70% { transform: translate(3px, 2px) scale(1.08); }
-    90% { transform: translate(-2px, 1px) scale(1.1); filter: invert(0.1); }
-    100% { transform: translate(0, 0) scale(1.2); opacity: 0; filter: invert(0); }
-}
-
-.epic-transition-active {
-    animation: screenStrobeAndShake 0.6s cubic-bezier(.36,.07,.19,.97) both;
-    background-color: #0000FF !important;
-    pointer-events: none;
-}
-
-
-/* --- Page 2: dashboard.html Layout --- */
-#dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
     box-sizing: border-box;
 }
 
-.p2-header-container {
-    width: 100%;
-    border-bottom: 4px solid #8F84C1;
-    padding-bottom: 15px;
-    margin-bottom: 50px;
-}
-
-.p2-title {
-    font-size: 4.5em;
-    margin: 0;
-    display: inline-block;
-}
-
-.p2-subtitle {
-    font-family: Arial, sans-serif;
-    color: #000000;
-    margin: 0 0 0 15px;
-    font-size: 1.8em;
-    display: inline-block;
-    font-weight: normal;
-}
-
-/* Clean Component Cards Alignment */
-.p2-grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.p2-card {
-    height: 180px;
-    border-radius: 20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Times New Roman", serif;
-    font-size: 2.3em;
-    color: #000000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-
-.me-card { background-color: #7DD6FF; }
-.blogs-card { background-color: #4A4A4A; color: #FFFFFF; }
-.confession-card { background-color: #FF4F6C; }
-
-/* Fixed Icon Badges Badge Size */
-.p2-icon {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background-color: #625091;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4em;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-/* Media Subsections Layout */
-.media-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-    margin-bottom: 50px;
-}
-
-.player-block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.player-label {
-    color: white;
-    padding: 8px 24px;
-    border-radius: 25px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-bottom: 20px;
-}
-
-.song-label { background-color: #443B61; }
-.cinema-label { background-color: #1ACDE8; color: #000000; }
-
-/* Empty block styling so placeholders look like real code elements */
-.media-placeholder-box {
-    width: 100%;
-    height: 250px;
-    background-color: #F5F5F7;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #A0A0A0;
-    font-size: 1.2em;
-    border: 2px dashed #E0E0E2;
-}
-
-/* Handle the Peaky blinders snapshot cleanly inside code frame */
-.cinema-img-frame {
-    width: 100%;
-    border-radius: 16px;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* Thumbs Controls */
-.thumbs-section {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.thumb-btn {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.8em;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-}
-
-.down-btn { background-color: #FF4A6C; }
-.up-btn { background-color: #49AE58; }
+.p1-navbar { width: 100%; max-width: 1200px; display: flex; justify-content: flex-start; }
+.instagram-btn { background-color: #6D7FE4; color: white; padding: 12px 36px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: all 0.2s ease; }
+.instagram-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(109, 127, 228, 0.5); }
+.p1-center-content { text-align: center; margin-bottom: 60px; }
+.among-us-box { border: 8px solid #6D7FE4; padding: 25px 45px; border-radius: 24px; position: relative; max-width: 280px; margin: 0 auto 40px auto; font-size: 1.6em; font-weight: bold; font-style: italic; }
+.among-us-box::after { content: ''; position: absolute; bottom: -28px; left: 45px; border-width: 28px 14px 0 14px; border-style: solid; border-color: #6D7FE4 transparent transparent transparent; }
+.p1-title { font-size: 4em; margin: 20px 0 40px 0; font-weight: bold; }
+.hell-yeah-btn { background-color: #0000FF; color: white; padding: 18px 65px; border-radius: 14px; text-decoration: none; font-weight: bold; font-size: 1.6em; display: inline-block; box-shadow: 0 8px 0px #000099; transition: all 0.1s ease; }
+.hell-yeah-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 0px #000099, 0 10px 20px rgba(0, 0, 255, 0.4); }
+.hell-yeah-btn:active { transform: translateY(6px); box-shadow: 0 2px 0px #000099; }
+.p1-footer { width: 100%; color: #828282; text-align: center; font-size: 0.95em; max-width: 900px; }
+@keyframes screenStrobeAndShake { 0% { transform: translate(0, 0) scale(1); } 10% { transform: translate(-4px, 3px) scale(1.02); } 30% { transform: translate(4px, -3px) scale(1.04); } 50% { transform: translate(-5px, -2px) scale(1.06); } 70% { transform: translate(3px, 2px) scale(1.08); } 90% { transform: translate(-2px, 1px) scale(1.1); } 100% { transform: translate(0, 0) scale(1.2); opacity: 0; } }
+.epic-transition-active { animation: screenStrobeAndShake 0.6s cubic-bezier(.36,.07,.19,.97) both; background-color: #0000FF !important; pointer-events: none; }
