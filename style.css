@@ -1,0 +1,250 @@
+/* --- Global Styles (Shared) --- */
+:root {
+    /* Color Palette Extracted from image_1.png and image_0.png */
+    --p1-bg: #FFFFFF;
+    --p1-text: #000000;
+    --p1-nav-purple: #6D7FE4;
+    --p1-btn-blue: #0000FF;
+    --p1-btn-text: #FFFFFF;
+    
+    --p2-bg: #FFFFFF;
+    --p2-text-header: #000000;
+    --p2-nav-underline: #8F84C1; /* The bar below the header */
+    --p2-card-blue: #7DD6FF;
+    --p2-card-grey: #4A4A4A;
+    --p2-card-red: #FF4F6C;
+    --p2-label-grey: #828282;
+    --p2-icon-purple: #625091;
+    --p2-player-song-bg: #443B61;
+    --p2-player-cinema-bg: #1ACDE8;
+    --p2-thumbs-down: #FF4A6C;
+    --p2-thumbs-up: #49AE58;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Default sans-serif font */
+    background-color: var(--p1-bg);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: "Times New Roman", serif; /* Serif font for headers */
+}
+
+/* --- Page 1: index.html (image_1.png) --- */
+#homepage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    color: var(--p1-text);
+}
+
+.p1-navbar {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.instagram-btn {
+    background-color: var(--p1-nav-purple);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.p1-center-content {
+    text-align: center;
+}
+
+.among-us-box {
+    border: 8px solid var(--p1-nav-purple);
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* The Among Us speech bubble arrow */
+.among-us-box::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; /* Adjust to place the tail */
+    left: 20px;   /* Position along the bottom */
+    border-width: 30px 15px 0 15px; /* Define arrow shape */
+    border-style: solid;
+    border-color: var(--p1-nav-purple) transparent transparent transparent; /* Arrow color matches border */
+}
+
+.p1-title {
+    font-size: 3.5em;
+    margin-top: 50px;
+}
+
+.hell-yeah-btn {
+    background-color: var(--p1-btn-blue);
+    color: white;
+    padding: 15px 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease; /* Animation smooth transition */
+}
+
+.p1-footer {
+    padding: 10px;
+    width: 100%;
+    background-color: #f1f1f1; /* Match the footer area color */
+    color: var(--p1-label-grey);
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* --- Page 2: dashboard.html (image_0.png) --- */
+#dashboard {
+    height: 100vh;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.p2-header-container {
+    width: 100%;
+    border-bottom: 3px solid var(--p2-nav-underline);
+    padding-bottom: 20px;
+}
+
+.p2-title {
+    font-size: 3em;
+    margin: 0;
+}
+
+.p2-subtitle {
+    font-family: Arial, sans-serif;
+    color: var(--p2-text-header);
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.p2-grid-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.p2-card {
+    width: 250px;
+    height: 150px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Times New Roman", serif;
+    font-size: 2em;
+    color: var(--p2-text-header);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Soft shadow */
+}
+
+/* Specific Page 2 colors from image_0.png */
+.me-card { background-color: var(--p2-card-blue); }
+.blogs-card { background-color: var(--p2-card-grey); color: white; }
+.confession-card { background-color: var(--p2-card-red); }
+
+/* The Page 2 icons */
+.p2-icon {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--p2-icon-purple);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Media Players and Thumbs */
+.media-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.player-label {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.song-label { background-color: var(--p2-player-song-bg); }
+.cinema-label { background-color: var(--p2-player-cinema-bg); color: black; }
+
+.player-container img {
+    border-radius: 10px;
+    max-width: 100%;
+    display: block;
+}
+
+.thumbs-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.thumb-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    cursor: default; /* Per your request: non-clickable on this page */
+}
+
+.down-btn { background-color: var(--p2-thumbs-down); }
+.up-btn { background-color: var(--p2-thumbs-up); }
+
+/* --- Requested Page 1 Hover Animations --- */
+.instagram-btn:hover {
+    transform: scale(1.1); /* Pop zoom */
+}
+
+.hell-yeah-btn:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 255, 0.4); /* Blue glow */
+    transform: translateY(-5px); /* Lift animation */
+}
+
+/* Special Page transition effect triggered by Hell yeah! click */
+@keyframes fadeOutAndZoom {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.9); }
+}
+
+.page-transition {
+    animation: fadeOutAndZoom 0.5s ease forwards;
+}
