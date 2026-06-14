@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snugelf's Corner</title>
+    <!-- Use the specific Times New Roman look from image_1.png -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="homepage">
+
+    <!-- Page 1 Navigation (Top-Left) -->
+    <div class="p1-navbar">
+        <a href="https://www.instagram.com/tbhidkong?igsh=aXV4OXEwYXFwOGxk" target="_blank" class="instagram-btn">
+            Instagram
+        </a>
+    </div>
+
+    <!-- Main Center Content -->
+    <div class="p1-center-content">
+        <div class="among-us-box">
+            My Among Us<br>Username lmao
+        </div>
+        <h1 class="p1-title">Snugelf's Corner on the net :)</h1>
+        
+        <!-- The Hell yeah! Button as a functional anchor -->
+        <a href="dashboard.html" id="transition-trigger" class="hell-yeah-btn">
+            Hell yeah!
+        </a>
+    </div>
+
+    <!-- Footer Text Area (Bottom) -->
+    <div class="p1-footer">
+        This website uses no cookies, tracking, IP access so you can use it even if the CIA is behind you :) okay maybe not :(
+    </div>
+
+    <script>
+        // BRO: This script handles the requested transition animation on click.
+        document.getElementById('transition-trigger').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent instant navigation
+
+            // Add the animation class to the whole body
+            document.body.classList.add('page-transition');
+
+            // Wait for animation to finish (0.5s in style.css), then navigate
+            setTimeout(() => {
+                window.location.href = this.getAttribute('href');
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
