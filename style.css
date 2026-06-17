@@ -1,166 +1,184 @@
-/* --- Root Core Layout Setup --- */
-body {
+/* --- Global Reset & Canvas Sandbox --- */
+html, body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FFFFFF;
-    color: #000000;
-}
-
-/* --- Top Header (Exact Copy) --- */
-.brand-header-wrap {
-    padding-left: 20px;
-    padding-top: 35px;
-    position: relative;
     width: 100%;
-    box-sizing: border-box;
+    background-color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-.brand-main-title {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 82px;
+/* --- Page 2: Dashboard Absolute Framework --- */
+.canvas-container {
+    position: relative;
+    width: 1440px; /* Base structural design resolution */
     margin: 0;
-    display: inline-block;
-    font-weight: normal;
-    letter-spacing: -1px;
-    line-height: 1;
+    height: 900px;
 }
 
-.brand-sub-title {
+/* --- Header Section (Same-To-Same Overlap) --- */
+.header-title-main {
+    position: absolute;
+    left: 24px;
+    top: 15px;
     font-family: "Times New Roman", Times, serif;
-    font-size: 32px;
-    margin: 0 0 0 10px;
-    display: inline-block;
+    font-size: 112px;
     font-weight: normal;
-    vertical-align: bottom;
-    position: relative;
-    bottom: 12px;
+    margin: 0;
+    line-height: 0.8;
+    letter-spacing: -2px;
+    z-index: 1;
 }
 
-.brand-divider-line {
-    width: 650px;
-    height: 5px;
-    background-color: #555CC6;
-    margin-top: 15px;
-    margin-left: -20px; /* Bleeds to edge like the image */
+.header-title-sub {
+    position: absolute;
+    left: 312px;
+    top: 64px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 38px;
+    font-weight: normal;
+    margin: 0;
+    white-space: nowrap;
+    z-index: 2;
 }
 
-/* --- Card Links Row Matrix --- */
-.dashboard-cards-container {
-    display: flex;
-    gap: 40px;
-    padding-left: 70px;
-    margin-top: 45px;
+.header-blue-bar {
+    position: absolute;
+    left: 0;
+    top: 135px;
+    width: 715px;
+    height: 6px;
+    background-color: #4D52C5;
 }
 
-.app-card {
-    width: 250px;
-    height: 175px;
-    border-radius: 18px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* --- Component Block Cards Matrix --- */
+.block-card {
+    position: absolute;
+    width: 215px;
+    height: 165px;
+    border-radius: 16px;
     font-family: "Times New Roman", Times, serif;
     font-size: 32px;
     color: #000000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.card-me { background-color: #7CD6FF; }
-.card-blogs { background-color: #464646; color: #FFFFFF; }
-.card-confession { background-color: #FF4D6A; }
-
-/* The Floating Circular Badge Overlay nodes */
-.card-badge-overlay {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background-color: #5E56C2;
-    color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
-/* --- Media Elements Positioning (As aligned in your layout) --- */
-.media-flex-stack {
+.card-spec-me {
+    left: 78px;
+    top: 236px;
+    background-color: #5CE1E6;
+}
+
+.card-spec-blogs {
+    left: 348px;
+    top: 236px;
+    background-color: #464646;
+    color: #FFFFFF;
+}
+
+.card-spec-conf {
+    left: 618px;
+    top: 236px;
+    background-color: #FF2E63;
+}
+
+/* --- Clean SVG Badge Nodes Replacing Cheap Emojis --- */
+.vector-badge {
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #5356C7;
     display: flex;
-    flex-direction: column;
-    margin-top: 45px;
-    padding-left: 300px; /* Matches alignment point precisely */
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.media-group-node {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.vector-badge svg {
+    width: 26px;
+    height: 26px;
+    fill: #FFFFFF;
 }
 
-/* Rounded Header Pill labels */
-.pill-status-label {
+/* --- Status Pill Handles --- */
+.pill-label-node {
+    position: absolute;
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 15px;
-    padding: 6px 22px;
+    padding: 6px 20px;
     border-radius: 20px;
-    margin-bottom: 15px;
-    display: inline-block;
+    color: #FFFFFF;
 }
 
-.label-music { background-color: #555CC6; color: #FFFFFF; }
-.label-cinema { background-color: #00B4D8; color: #FFFFFF; }
+.pill-music {
+    left: 328px;
+    top: 530px;
+    background-color: #5356C7;
+}
 
-/* Dynamic Layout Boxes matching visual dimensions */
-.music-box-embed {
-    width: 530px;
-    height: 94px;
-    background-color: #FFF2E6;
-    border: 1px solid #F3D9C4;
+.pill-cinema {
+    left: 322px;
+    top: 672px;
+    background-color: #00B4D8;
+    color: #000000;
+}
+
+/* --- Media Asset Components --- */
+.spotify-box-mock {
+    position: absolute;
+    left: 390px;
+    top: 578px;
+    width: 572px;
+    height: 96px;
+    background-color: #FFEEDB;
     border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.cinema-box-embed {
-    width: 340px;
-    height: 250px;
+.cinema-frame-media {
+    position: absolute;
+    left: 396px;
+    top: 720px;
+    width: 366px;
+    height: 248px;
     object-fit: cover;
     border-radius: 2px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
-/* --- Floating Bottom Action Handles --- */
-.footer-thumbs-container {
+/* --- Bottom Left Action Row --- */
+.action-thumbs-row {
+    position: absolute;
+    left: 10px;
+    top: 905px;
     display: flex;
     gap: 15px;
-    padding-left: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
 
-.thumb-action-node {
-    width: 52px;
-    height: 52px;
+.action-btn-circle {
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-    color: #FFFFFF;
-    font-size: 24px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.action-down { background-color: #FF4D6A; }
-.action-up { background-color: #2CA744; }
+.btn-down-spec { background-color: #FF2E63; }
+.btn-up-spec { background-color: #28A745; }
+.action-btn-circle svg { width: 24px; height: 24px; fill: #FFFFFF; }
 
 
-/* --- Page 1 Essential Core Rules (Preserved) --- */
+/* --- Page 1 Framework Setup (Kept Isolated) --- */
 #homepage { height: 100vh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 40px 20px; box-sizing: border-box; }
 .p1-navbar { width: 100%; max-width: 1200px; display: flex; justify-content: flex-start; }
 .instagram-btn { background-color: #6D7FE4; color: white; padding: 12px 36px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: all 0.2s ease; }
