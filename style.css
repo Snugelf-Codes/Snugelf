@@ -1,166 +1,69 @@
-/* --- Direct Reset --- */
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #FFFFFF;
-    font-family: Arial, sans-serif;
+/* We will use Tailwind CSS via CDN, but we might need some custom animations or font imports here */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --android-dark-bg: #1A1C1E;
+    --android-dark-surface: #2D2F31;
 }
 
-/* --- Fixed Board Framework --- */
-.board-canvas {
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom styles for components */
+.speech-bubble {
     position: relative;
-    width: 1200px;
-    height: 950px;
-    margin: 0 auto;
-    padding: 30px;
-    box-sizing: border-box;
 }
 
-/* --- Header Unit --- */
-.main-header-line {
-    border-bottom: 5px solid #4D52C5;
-    padding-bottom: 10px;
-    margin-bottom: 50px;
-    width: 715px;
-}
-
-.brand-title {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 96px;
-    font-weight: normal;
-    margin: 0;
-    display: inline-block;
-    line-height: 0.85;
-    letter-spacing: -2px;
-}
-
-.status-subtitle {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 34px;
-    font-weight: normal;
-    margin: 0 0 0 15px;
-    display: inline-block;
-    vertical-align: bottom;
-}
-
-/* --- Component Block Cards Row --- */
-.cards-row-layout {
-    display: flex;
-    gap: 40px;
-    margin-top: 40px;
-    margin-bottom: 50px;
-    padding-left: 60px;
-}
-
-.metric-card-box {
-    width: 235px;
-    height: 165px;
-    border-radius: 16px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 32px;
-    color: #000000;
-}
-
-.color-cyan-node { background-color: #5CE1E6; }
-.color-dark-node { background-color: #464646; color: #FFFFFF; }
-.color-pink-node { background-color: #FF2E63; }
-
-/* --- Vector Icons --- */
-.icon-badge-orb {
+.speech-bubble::after {
+    content: '';
     position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
+    bottom: -36px;
+    left: 60px;
+    border-width: 36px 18px 0 18px;
+    border-style: solid;
+    border-color: inherit;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(15deg);
+}
+
+/* Dark mode transitions */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typing cursor animation */
+.typing-cursor {
+    border-right: .15em solid orange;
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+/* Dashboard card badges */
+.card-badge {
+    position: absolute;
+    top: -1.25rem;
+    right: -1.25rem;
+    width: 3.5rem;
+    height: 3.5rem;
     background-color: #5356C7;
+    border-radius: 9999px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.icon-badge-orb svg {
-    width: 24px !important;
-    height: 24px !important;
-    fill: #FFFFFF;
-    display: block;
-}
-
-/* --- Media Layout Column --- */
-.media-column-layout {
-    display: flex;
-    flex-direction: column;
-    margin-left: 280px;
-    gap: 35px;
-}
-
-.pill-status-node {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 6px 20px;
-    border-radius: 20px;
-    color: #FFFFFF;
-    display: inline-block;
-    margin-bottom: 12px;
-}
-
-.bg-purple-tag { background-color: #5356C7; }
-.bg-cyan-tag { background-color: #00B4D8; color: #000000; }
-
-.spotify-embed-block {
-    width: 565px;
-    height: 94px;
-    background-color: #FFEEDB;
-    border: 1px solid #E8D3C0;
-    border-radius: 4px;
-}
-
-.cinema-media-frame {
-    width: 366px;
-    height: 248px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* --- Action Controls Row --- */
-.action-controls-row {
-    display: flex;
-    gap: 15px;
-    margin-top: 40px;
-    padding-left: 10px;
-}
-
-.control-btn-circle {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    border: none;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-
-.btn-red-color { background-color: #FF2E63; }
-.btn-green-color { background-color: #28A745; }
-.control-btn-circle svg { width: 22px; height: 22px; fill: #FFFFFF; }
-
-/* --- Base Homepage Setup Styles --- */
-#homepage { height: 100vh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 40px 20px; box-sizing: border-box; }
-.p1-navbar { width: 100%; max-width: 1200px; display: flex; justify-content: flex-start; }
-.instagram-btn { background-color: #6D7FE4; color: white; padding: 12px 36px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1em; }
-.p1-center-content { text-align: center; margin-bottom: 60px; }
-.among-us-box { border: 8px solid #6D7FE4; padding: 25px 45px; border-radius: 24px; position: relative; max-width: 280px; margin: 0 auto 40px auto; font-size: 1.6em; font-weight: bold; font-style: italic; }
-.among-us-box::after { content: ''; position: absolute; bottom: -28px; left: 45px; border-width: 28px 14px 0 14px; border-style: solid; border-color: #6D7FE4 transparent transparent transparent; }
-.p1-title { font-size: 4em; margin: 20px 0 40px 0; font-weight: bold; }
-.hell-yeah-btn { background-color: #0000FF; color: white; padding: 18px 65px; border-radius: 14px; text-decoration: none; font-weight: bold; font-size: 1.6em; display: inline-block; box-shadow: 0 8px 0px #000099; transition: all 0.1s ease; }
-.p1-footer { width: 100%; color: #828282; text-align: center; font-size: 0.95em; max-width: 900px; }
-@keyframes screenStrobeAndShake { 0% { transform: translate(0, 0) scale(1); } 10% { transform: translate(-4px, 3px) scale(1.02); } 30% { transform: translate(4px, -3px) scale(1.04); } 50% { transform: translate(-5px, -2px) scale(1.06); } 70% { transform: translate(3px, 2px) scale(1.08); } 90% { transform: translate(-2px, 1px) scale(1.1); } 100% { transform: translate(0, 0) scale(1.2); opacity: 0; } }
-.epic-transition-active { animation: screenStrobeAndShake 0.6s cubic-bezier(.36,.07,.19,.97) both; background-color: #0000FF !important; pointer-events: none; }
