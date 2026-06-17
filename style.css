@@ -1,31 +1,30 @@
-/* --- Core Reset & Main Grid Canvas --- */
-body {
+/* --- Direct Reset --- */
+html, body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     background-color: #FFFFFF;
-    color: #000000;
+    font-family: Arial, sans-serif;
 }
 
-/* Master canvas frame container mimicking the Uizard layout workspace */
-.dashboard-canvas-container {
+/* --- Fixed Board Framework --- */
+.board-canvas {
     position: relative;
     width: 1200px;
+    height: 950px;
     margin: 0 auto;
-    padding: 30px 40px;
+    padding: 30px;
     box-sizing: border-box;
 }
 
-/* --- Header Area Structure --- */
-.header-wrapper {
-    position: relative;
-    width: 100%;
+/* --- Header Unit --- */
+.main-header-line {
+    border-bottom: 5px solid #4D52C5;
+    padding-bottom: 10px;
     margin-bottom: 50px;
-    border-bottom: 6px solid #5356C7; /* Thick blue decorative line */
-    padding-bottom: 8px;
+    width: 715px;
 }
 
-.title-main-brand {
+.brand-title {
     font-family: "Times New Roman", Times, serif;
     font-size: 96px;
     font-weight: normal;
@@ -35,28 +34,28 @@ body {
     letter-spacing: -2px;
 }
 
-.title-sub-status {
+.status-subtitle {
     font-family: "Times New Roman", Times, serif;
     font-size: 34px;
     font-weight: normal;
-    margin: 0 0 0 12px;
+    margin: 0 0 0 15px;
     display: inline-block;
     vertical-align: bottom;
-    color: #000000;
 }
 
-/* --- The 3 Application Link Cards --- */
-.cards-flex-row {
+/* --- Component Block Cards Row --- */
+.cards-row-layout {
     display: flex;
-    gap: 45px;
+    gap: 40px;
+    margin-top: 40px;
     margin-bottom: 50px;
-    margin-left: 60px; /* Aligns row inset with mockup design */
+    padding-left: 60px;
 }
 
-.dashboard-card {
+.metric-card-box {
     width: 235px;
     height: 165px;
-    border-radius: 18px;
+    border-radius: 16px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -66,12 +65,12 @@ body {
     color: #000000;
 }
 
-.card-bg-me { background-color: #5CE1E6; }
-.card-bg-blogs { background-color: #464646; color: #FFFFFF; }
-.card-bg-confession { background-color: #FF2E63; }
+.color-cyan-node { background-color: #5CE1E6; }
+.color-dark-node { background-color: #464646; color: #FFFFFF; }
+.color-pink-node { background-color: #FF2E63; }
 
-/* The Floating Badge Orbs placed over top right corner of the cards */
-.badge-node-orb {
+/* --- Vector Icons --- */
+.icon-badge-orb {
     position: absolute;
     top: -20px;
     right: -20px;
@@ -85,45 +84,36 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Hardlocked structural safety limits: absolutely guarantees SVGs never blow up again */
-.badge-node-orb svg {
+.icon-badge-orb svg {
     width: 24px !important;
     height: 24px !important;
-    max-width: 24px !important;
-    max-height: 24px !important;
+    fill: #FFFFFF;
     display: block;
 }
 
-/* --- Content Column Stack Matrix --- */
-.content-media-stack {
+/* --- Media Layout Column --- */
+.media-column-layout {
     display: flex;
     flex-direction: column;
-    margin-left: 280px; /* Horizontal displacement indent */
-    gap: 30px;
+    margin-left: 280px;
+    gap: 35px;
 }
 
-.media-group-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Pill Tags labels */
-.pill-status-tag {
+.pill-status-node {
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 14px;
     padding: 6px 20px;
     border-radius: 20px;
     color: #FFFFFF;
+    display: inline-block;
     margin-bottom: 12px;
 }
 
-.pill-purple { background-color: #5356C7; }
-.pill-cyan { background-color: #00B4D8; color: #000000; }
+.bg-purple-tag { background-color: #5356C7; }
+.bg-cyan-tag { background-color: #00B4D8; color: #000000; }
 
-/* Fixed dimensional layouts matching custom widgets precisely */
-.mock-spotify-widget {
+.spotify-embed-block {
     width: 565px;
     height: 94px;
     background-color: #FFEEDB;
@@ -131,22 +121,22 @@ body {
     border-radius: 4px;
 }
 
-.mock-cinema-display {
+.cinema-media-frame {
     width: 366px;
     height: 248px;
     object-fit: cover;
     border-radius: 4px;
 }
 
-/* --- Footer Thumbs Control Elements Row --- */
-.footer-navigation-bar {
+/* --- Action Controls Row --- */
+.action-controls-row {
     display: flex;
     gap: 15px;
     margin-top: 40px;
     padding-left: 10px;
 }
 
-.thumb-button-node {
+.control-btn-circle {
     width: 54px;
     height: 54px;
     border-radius: 50%;
@@ -155,14 +145,14 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
-.btn-theme-red { background-color: #FF2E63; }
-.btn-theme-green { background-color: #28A745; }
-.thumb-button-node svg { width: 22px; height: 22px; }
+.btn-red-color { background-color: #FF2E63; }
+.btn-green-color { background-color: #28A745; }
+.control-btn-circle svg { width: 22px; height: 22px; fill: #FFFFFF; }
 
-
-/* --- First Page Styles (Left Completely Safe) --- */
+/* --- Base Homepage Setup Styles --- */
 #homepage { height: 100vh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 40px 20px; box-sizing: border-box; }
 .p1-navbar { width: 100%; max-width: 1200px; display: flex; justify-content: flex-start; }
 .instagram-btn { background-color: #6D7FE4; color: white; padding: 12px 36px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1em; }
