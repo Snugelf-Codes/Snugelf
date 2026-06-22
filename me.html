@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me | Snugelf</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'android-dark': '#121212',
+                        'surface-container': '#EBEDFF',
+                        'on-secondary-fixed-variant': '#3F414E',
+                        'card-blue': '#0038FF',
+                        'card-red': '#B10000',
+                        'card-green': '#4ADE80',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-android-dark text-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col font-sans p-4 md:p-12">
+
+    <!-- Back Button & Theme -->
+    <div class="flex justify-between items-center mb-8 md:mb-12">
+        <a href="dashboard.html" class="flex items-center gap-2 font-bold text-lg md:text-xl hover:underline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back
+        </a>
+        <button id="dark-mode-toggle" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full shadow-md">
+            <span id="theme-icon-container"></span>
+        </button>
+    </div>
+
+    <!-- Intro Section -->
+    <div class="max-w-4xl mb-8 md:mb-12">
+        <h1 class="text-3xl md:text-5xl font-serif font-medium leading-tight mb-8">
+            In this vast web of Internet, I am searching for a place that smells like rain and the Big-D <3
+        </h1>
+
+        <div class="flex flex-wrap gap-2 md:gap-4 mb-8 md:mb-12">
+            <span class="bg-[#B10000] text-white px-4 md:px-6 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest">Technologist</span>
+            <span class="bg-[#008000] text-white px-4 md:px-6 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest">Ant Nerd</span>
+            <span class="bg-[#0038FF] text-white px-4 md:px-6 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest">Mercedes AMG</span>
+            <span class="bg-[#6D7FE4] text-white px-4 md:px-6 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest">To Pimp A Butterfly</span>
+        </div>
+
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative border border-gray-300 dark:border-gray-700">
+            <div class="absolute top-0 left-0 -mt-3 ml-6 bg-card-red text-white text-[10px] font-bold px-4 py-1 rounded-sm uppercase tracking-widest">Hi Lol</div>
+            <h2 class="text-2xl md:text-3xl font-black mb-4">I worked my ass off for this website and now I dunno what to write :(</h2>
+            <p class="text-base md:text-lg text-on-secondary-fixed-variant dark:text-gray-400 leading-relaxed">
+                I was born at 8:00 am. Idk do what you want to with that. I suck at academics highkey. I suck at sports too tbh. I love lesbians tho and maybe diet coke too. Ion have much coffee. Ahh I forgot ants I FUCKING LOVE ANTS. Maybe termites too? HELL NAH F*CK TERMITES EWW
+            </p>
+        </div>
+    </div>
+
+    <!-- Sugar Counter -->
+    <div class="bg-card-blue text-white rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-12 text-center mb-8 md:mb-12">
+        <div id="sugar-count" class="text-7xl md:text-[10rem] font-black leading-none">0</div>
+        <div class="text-[10px] md:text-sm font-bold uppercase tracking-[0.2em] md:tracking-[0.3em]">Added Sugar This Month</div>
+    </div>
+
+    <!-- Vibes Section -->
+    <div class="bg-card-red rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 mb-8 md:mb-12 relative overflow-hidden">
+        <h2 class="text-white text-3xl md:text-5xl font-serif font-black mb-8 md:mb-10 flex items-center gap-4">
+            <span class="text-2xl md:text-4xl">⁂</span> Current Vibes
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div class="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p class="text-white/60 text-[10px] font-bold uppercase mb-1">Watching</p>
+                <p class="text-white text-lg md:text-xl font-bold">Peaky Blinders</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p class="text-white/60 text-[10px] font-bold uppercase mb-1">Playing</p>
+                <p class="text-white text-lg md:text-xl font-bold">Minecraft lol</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p class="text-white/60 text-[10px] font-bold uppercase mb-1">Learning</p>
+                <p class="text-white text-lg md:text-xl font-bold">Diving in Badminton</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p class="text-white/60 text-[10px] font-bold uppercase mb-1">Song on repeat</p>
+                <p class="text-white text-lg md:text-xl font-bold">tv off IDK WHY</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p class="text-white/60 text-[10px] font-bold uppercase mb-1">Next buy</p>
+                <p class="text-white text-lg md:text-xl font-bold">Prolly games</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+                <p class="text-white/60 text-[10px] font-bold uppercase mb-1">Best supporter of the week</p>
+                <p class="text-white text-lg md:text-xl font-bold">Sara</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fears Section -->
+    <div class="bg-card-green rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 mb-8 md:mb-12 relative overflow-hidden">
+        <div class="absolute top-4 right-6 md:top-6 md:right-10 bg-black text-white px-3 md:px-4 py-1 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">Fears</div>
+        <div class="text-5xl md:text-[6rem] mb-4 md:mb-6">!</div>
+        <p class="text-xl md:text-2xl font-medium text-black mb-8 max-w-2xl">
+            I fear a girl asking me to show her my biceps LIKE NO YOU ARE GONNA LAUGH FUCK I DIDN'T WANT TO BE THIS TALL
+        </p>
+        <button class="bg-[#00512C] text-white px-6 md:px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+            TELL ME YOURS
+        </button>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="bg-[#1A1C1E] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-16 text-center text-white mb-12 md:mb-20 border border-gray-700">
+        <h2 class="text-3xl md:text-5xl font-serif font-black mb-4 md:mb-6">Let's cultivate together.</h2>
+        <p class="text-lg md:text-xl text-gray-400 mb-8 md:mb-10 max-w-2xl mx-auto">
+            Subscribe to my monthly garden update where I share thoughts on design, tech, and the occasional recipe for a really good soup.
+        </p>
+
+        <form class="max-w-xl mx-auto flex flex-col gap-4">
+            <input type="email" placeholder="you@example.com" class="w-full bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-full text-lg md:text-xl focus:outline-none focus:ring-4 focus:ring-blue-500/50">
+            <button class="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white py-3 md:py-4 rounded-full text-lg md:text-xl font-black uppercase tracking-widest transition-colors">
+                GROW WITH ME
+            </button>
+        </form>
+    </div>
+
+    <script src="theme.js"></script>
+    <script>
+        const sugarCountElement = document.getElementById('sugar-count');
+        const lastCheckKey = 'sugar_last_check';
+        const countKey = 'sugar_count';
+
+        function updateSugar() {
+            let count = parseInt(localStorage.getItem(countKey) || "0");
+            const lastCheck = localStorage.getItem(lastCheckKey);
+            const now = new Date().getTime();
+
+            if (lastCheck) {
+                const diff = now - parseInt(lastCheck);
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                if (days > 0) {
+                    count += days;
+                    localStorage.setItem(countKey, count.toString());
+                    localStorage.setItem(lastCheckKey, now.toString());
+                }
+            } else {
+                localStorage.setItem(lastCheckKey, now.toString());
+            }
+
+            sugarCountElement.textContent = count;
+        }
+
+        updateSugar();
+        setInterval(updateSugar, 60000);
+    </script>
+</body>
+</html>

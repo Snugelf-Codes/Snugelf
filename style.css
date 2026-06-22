@@ -1,69 +1,77 @@
-/* We will use Tailwind CSS via CDN, but we might need some custom animations or font imports here */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --android-dark-bg: #1A1C1E;
-    --android-dark-surface: #2D2F31;
+    --android-dark-bg: #121212;
 }
 
 .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Libre Caslon Text', serif;
 }
 
 .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Hanken Grotesk', sans-serif;
 }
 
 /* Custom styles for components */
 .speech-bubble {
     position: relative;
+    background-color: white;
+}
+
+.dark .speech-bubble {
+    background-color: #121212;
 }
 
 .speech-bubble::after {
     content: '';
     position: absolute;
-    bottom: -36px;
-    left: 60px;
-    border-width: 36px 18px 0 18px;
-    border-style: solid;
-    border-color: inherit;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    transform: rotate(15deg);
+    bottom: -48px;
+    left: 80px;
+    width: 40px;
+    height: 50px;
+    background-color: inherit;
+    border-right: 14px solid #6D7FE4;
+    border-bottom: 14px solid #6D7FE4;
+    border-bottom-right-radius: 20px;
+    transform: skewX(-15deg);
+    z-index: -1;
 }
 
-/* Dark mode transitions */
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* Fix for tail border connection */
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 85px;
+    width: 30px;
+    height: 20px;
+    background-color: inherit;
+    z-index: 1;
 }
 
 /* Typing cursor animation */
 .typing-cursor {
-    border-right: .15em solid orange;
-    animation: blink-caret .75s step-end infinite;
+    animation: blink 0.7s infinite;
 }
 
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-/* Dashboard card badges */
-.card-badge {
-    position: absolute;
-    top: -1.25rem;
-    right: -1.25rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    background-color: #5356C7;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+/* Dashboard Card Hover Wiggle */
+.wiggle-hover:hover {
+    animation: wiggle 0.3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg) scale(1.05); }
+    25% { transform: rotate(1deg) scale(1.05); }
+    50% { transform: rotate(0deg) scale(1.05); }
+    75% { transform: rotate(-1deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1.05); }
 }

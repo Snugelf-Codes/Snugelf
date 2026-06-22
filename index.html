@@ -12,76 +12,70 @@
             theme: {
                 extend: {
                     colors: {
-                        'android-dark': '#1A1C1E',
-                        'android-surface': '#2D2F31',
-                        'custom-purple': '#6D7FE4',
-                        'custom-blue': '#0000FF',
-                        'custom-blue-dark': '#000099',
+                        'brand-purple': '#6366f1',
+                        'brand-blue': '#0000ff',
+                        'brand-blue-dark': '#000080',
+                        'android-dark': '#121212',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-white dark:bg-android-dark text-black dark:text-gray-200 transition-colors duration-300 min-h-screen flex flex-col font-sans">
+<body class="bg-white dark:bg-android-dark text-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col font-sans overflow-hidden">
 
     <!-- Navbar -->
-    <nav class="p-6 flex justify-between items-start">
+    <nav class="p-6 md:p-8 flex justify-between items-start w-full absolute top-0 left-0 z-10">
         <a href="https://www.instagram.com/tbhidkong?igsh=aXV4OXEwYXFwOGxk" target="_blank"
-           class="bg-custom-purple text-white px-6 py-2 rounded-md font-bold text-lg hover:opacity-90 transition-opacity">
+           class="bg-[#6D7FE4] text-white px-6 md:px-8 py-2 rounded-lg font-bold text-lg md:text-xl shadow-sm hover:opacity-90 transition-opacity">
             Instagram
         </a>
 
         <!-- Dark Mode Toggle -->
-        <button id="dark-mode-toggle" class="relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 focus:outline-none">
-            <div id="toggle-circle" class="absolute inset-0 bg-black rounded-full flex items-center justify-center transition-colors duration-300">
-                <span id="toggle-icon" class="text-white text-xl">
-                    <!-- Moon Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                    </svg>
-                </span>
-            </div>
+        <button id="dark-mode-toggle" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full shadow-md transition-all active:scale-95">
+            <span id="theme-icon-container">
+                <!-- Icon will be inserted by JS -->
+            </span>
         </button>
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
+    <main class="flex-grow flex flex-col items-center justify-center text-center px-4 mt-8 md:mt-12">
         
         <!-- Speech Bubble -->
-        <div class="speech-bubble border-[12px] border-custom-purple rounded-[40px] px-10 py-8 mb-12 max-w-sm">
-            <p class="font-serif italic text-3xl font-bold leading-tight">
+        <div class="speech-bubble border-[10px] md:border-[14px] border-[#6D7FE4] rounded-[40px] md:rounded-[50px] px-8 md:px-12 py-6 md:py-10 mb-12 md:mb-16 max-w-[280px] md:max-w-md bg-white dark:bg-android-dark">
+            <p class="font-serif italic text-2xl md:text-4xl font-black leading-tight text-black dark:text-white">
                 My Among Us<br>Username lmao
             </p>
         </div>
 
-        <h1 class="text-6xl md:text-8xl font-bold mb-12 dark:text-white">
+        <h1 class="text-4xl md:text-[5.5rem] font-black mb-12 md:mb-16 tracking-tight leading-tight px-2">
             Snugelf's Corner on the net :)
         </h1>
 
-        <button id="hell-yeah-btn" class="bg-custom-blue text-white px-16 py-5 rounded-2xl font-bold text-3xl shadow-[0_8px_0px_0px_rgba(0,0,99,1)] active:shadow-none active:translate-y-2 transition-all">
-            Hell yeah!
+        <button id="hell-yeah-btn" class="bg-brand-blue text-white px-12 md:px-20 py-4 md:py-6 rounded-2xl md:rounded-3xl font-black text-2xl md:text-4xl shadow-[0_8px_0px_0px_rgba(0,0,128,1)] md:shadow-[0_12px_0px_0px_rgba(0,0,128,1)] active:shadow-none active:translate-y-2 transition-all">
+            Hell yeah
         </button>
     </main>
 
     <!-- Footer -->
-    <footer class="p-8 text-center text-gray-500 text-sm max-w-4xl mx-auto">
+    <footer class="w-full p-6 md:p-8 text-center text-gray-500 dark:text-gray-400 text-sm md:text-lg font-medium">
         This website uses no cookies, tracking, IP access so you can use it even if the CIA is behind you :) okay maybe not :(
     </footer>
 
     <!-- Transition Overlay -->
-    <div id="transition-overlay" class="fixed inset-0 bg-black z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
-        <div id="typing-text-container" class="text-white text-6xl md:text-8xl font-serif min-h-[1.5em] flex items-center">
-            <span id="typing-text" class="typing-cursor"></span>
+    <div id="transition-overlay" class="fixed inset-0 bg-black z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-700">
+        <div id="typing-container" class="text-white text-5xl md:text-9xl font-serif">
+            <span id="typing-text"></span><span class="typing-cursor">|</span>
         </div>
     </div>
 
     <script src="theme.js"></script>
     <script>
-        // Transition Animation
+        // Hell Yeah Transition
         const hellYeahBtn = document.getElementById('hell-yeah-btn');
         const overlay = document.getElementById('transition-overlay');
-        const typingSpan = document.getElementById('typing-text');
+        const typingText = document.getElementById('typing-text');
 
         hellYeahBtn.addEventListener('click', () => {
             overlay.classList.remove('opacity-0');
@@ -90,22 +84,20 @@
             setTimeout(() => {
                 const text = "Snugelf";
                 let i = 0;
-                const typeInterval = setInterval(() => {
+                typingText.textContent = "";
+
+                const type = () => {
                     if (i < text.length) {
-                        typingSpan.textContent += text.charAt(i);
+                        typingText.textContent += text.charAt(i);
                         i++;
+                        setTimeout(type, 150);
                     } else {
-                        clearInterval(typeInterval);
                         setTimeout(() => {
-                            overlay.style.transition = "opacity 1.5s ease";
-                            overlay.classList.remove('opacity-100');
-                            overlay.classList.add('opacity-0');
-                            setTimeout(() => {
-                                window.location.href = 'dashboard.html';
-                            }, 1500);
-                        }, 1000);
+                            window.location.href = 'dashboard.html';
+                        }, 500);
                     }
-                }, 1500 / text.length);
+                };
+                type();
             }, 500);
         });
     </script>
