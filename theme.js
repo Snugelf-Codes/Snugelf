@@ -1,52 +1,47 @@
-function updateDarkModeUI(isDark) {
-    const html = document.documentElement;
-    const toggleCircle = document.getElementById('toggle-circle');
-    const toggleIcon = document.getElementById('toggle-icon');
+const moonIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+`;
 
-    if (!toggleCircle || !toggleIcon) return;
+const sunIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+    </svg>
+`;
+
+function applyTheme(isDark) {
+    const html = document.documentElement;
+    const container = document.getElementById('theme-icon-container');
 
     if (isDark) {
         html.classList.add('dark');
-        toggleCircle.classList.remove('bg-black');
-        toggleCircle.classList.add('bg-white');
-        toggleIcon.classList.remove('text-white');
-        toggleIcon.classList.add('text-yellow-400');
-        toggleIcon.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 7a5 5 0 100 10 5 5 0 000-10zM2 13h2a1 1 0 100-2H2a1 1 0 100 2zm18 0h2a1 1 0 100-2h-2a1 1 0 100 2zM11 2v2a1 1 0 100 2V2a1 1 0 100-2zm0 18v2a1 1 0 100 2v-2a1 1 0 100-2zM5.99 4.576a1 1 0 10-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414L5.99 4.576zm12.02 12.02a1 1 0 10-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM18.01 4.576l1.414 1.414a1 1 0 101.414-1.414l-1.414-1.414a1 1 0 10-1.414 1.414zM5.99 16.596l-1.414 1.414a1 1 0 101.414 1.414l1.414-1.414a1 1 0 10-1.414-1.414z" />
-            </svg>
-        `;
+        if (container) container.innerHTML = sunIcon;
     } else {
         html.classList.remove('dark');
-        toggleCircle.classList.add('bg-black');
-        toggleCircle.classList.remove('bg-white');
-        toggleIcon.classList.add('text-white');
-        toggleIcon.classList.remove('text-yellow-400');
-        toggleIcon.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-            </svg>
-        `;
+        if (container) container.innerHTML = moonIcon;
     }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-// Apply theme immediately to prevent flash
-if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-} else {
-    document.documentElement.classList.remove('dark');
-}
+// Initialize theme
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+let isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+// Default to dark mode if never set, as requested by my interpretation of "exactly like photos" (which are dark-themed)
+if (!savedTheme) isDark = true;
+
+applyTheme(isDark);
 
 window.addEventListener('DOMContentLoaded', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    updateDarkModeUI(isDark);
+    applyTheme(isDark); // Re-apply to ensure icon is correct after DOM loads
 
     const toggleBtn = document.getElementById('dark-mode-toggle');
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
-            const willBeDark = !document.documentElement.classList.contains('dark');
-            localStorage.setItem('theme', willBeDark ? 'dark' : 'light');
-            updateDarkModeUI(willBeDark);
+            isDark = !document.documentElement.classList.contains('dark');
+            applyTheme(isDark);
         });
     }
 });
