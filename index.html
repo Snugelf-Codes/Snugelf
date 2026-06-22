@@ -1,105 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Snugelf's Corner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-purple': '#6366f1',
-                        'brand-blue': '#0000ff',
-                        'brand-blue-dark': '#000080',
-                        'android-dark': '#121212',
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-white dark:bg-android-dark text-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col font-sans overflow-hidden">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body class="home-page">
+    <main class="home-shell">
+      <a class="instagram-link" href="https://www.instagram.com/tbhidkong?igsh=aXV4OXEwYXFwOGxk" target="_blank" rel="noreferrer">INSTAGRAM</a>
 
-    <!-- Navbar -->
-    <nav class="p-6 md:p-8 flex justify-between items-start w-full absolute top-0 left-0 z-10">
-        <a href="https://www.instagram.com/tbhidkong?igsh=aXV4OXEwYXFwOGxk" target="_blank"
-           class="bg-[#6D7FE4] text-white px-6 md:px-8 py-2 rounded-lg font-bold text-lg md:text-xl shadow-sm hover:opacity-90 transition-opacity">
-            Instagram
-        </a>
+      <button class="moon-toggle home-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <span class="moon-icon" aria-hidden="true"></span>
+        <span>Dark mode toggle</span>
+      </button>
 
-        <!-- Dark Mode Toggle -->
-        <button id="dark-mode-toggle" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full shadow-md transition-all active:scale-95">
-            <span id="theme-icon-container">
-                <!-- Icon will be inserted by JS -->
-            </span>
-        </button>
-    </nav>
+      <div class="outline-circle home-circle" aria-hidden="true"></div>
+      <div class="outline-diamond home-diamond" aria-hidden="true"></div>
 
-    <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center justify-center text-center px-4 mt-8 md:mt-12">
-        
-        <!-- Speech Bubble -->
-        <div class="speech-bubble border-[10px] md:border-[14px] border-[#6D7FE4] rounded-[40px] md:rounded-[50px] px-8 md:px-12 py-6 md:py-10 mb-12 md:mb-16 max-w-[280px] md:max-w-md bg-white dark:bg-android-dark">
-            <p class="font-serif italic text-2xl md:text-4xl font-black leading-tight text-black dark:text-white">
-                My Among Us<br>Username lmao
-            </p>
-        </div>
-
-        <h1 class="text-4xl md:text-[5.5rem] font-black mb-12 md:mb-16 tracking-tight leading-tight px-2">
-            Snugelf's Corner on the net :)
-        </h1>
-
-        <button id="hell-yeah-btn" class="bg-brand-blue text-white px-12 md:px-20 py-4 md:py-6 rounded-2xl md:rounded-3xl font-black text-2xl md:text-4xl shadow-[0_8px_0px_0px_rgba(0,0,128,1)] md:shadow-[0_12px_0px_0px_rgba(0,0,128,1)] active:shadow-none active:translate-y-2 transition-all">
-            Hell yeah
-        </button>
+      <section class="hero">
+        <p class="speech-bubble">My Among Us Username lmao</p>
+        <h1>Snugelf's Corner on the<br>net :)</h1>
+        <a class="big-pill" href="dashboard.html">HELL YEAH!</a>
+        <p class="tiny-note">You can click this button btw retard</p>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full p-6 md:p-8 text-center text-gray-500 dark:text-gray-400 text-sm md:text-lg font-medium">
-        This website uses no cookies, tracking, IP access so you can use it even if the CIA is behind you :) okay maybe not :(
+    <footer class="site-footer home-footer">
+      <p>This website uses no cookies, tracking, IP access so you can use it even if the CIA is behind you :) okay maybe not :(</p>
+      <strong>Parth Choudhary</strong>
     </footer>
-
-    <!-- Transition Overlay -->
-    <div id="transition-overlay" class="fixed inset-0 bg-black z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-700">
-        <div id="typing-container" class="text-white text-5xl md:text-9xl font-serif">
-            <span id="typing-text"></span><span class="typing-cursor">|</span>
-        </div>
-    </div>
-
-    <script src="theme.js"></script>
-    <script>
-        // Hell Yeah Transition
-        const hellYeahBtn = document.getElementById('hell-yeah-btn');
-        const overlay = document.getElementById('transition-overlay');
-        const typingText = document.getElementById('typing-text');
-
-        hellYeahBtn.addEventListener('click', () => {
-            overlay.classList.remove('opacity-0');
-            overlay.classList.add('opacity-100', 'pointer-events-auto');
-
-            setTimeout(() => {
-                const text = "Snugelf";
-                let i = 0;
-                typingText.textContent = "";
-
-                const type = () => {
-                    if (i < text.length) {
-                        typingText.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(type, 150);
-                    } else {
-                        setTimeout(() => {
-                            window.location.href = 'dashboard.html';
-                        }, 500);
-                    }
-                };
-                type();
-            }, 500);
-        });
-    </script>
-</body>
+  </body>
 </html>
