@@ -1,113 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confession | Snugelf</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'android-dark': '#121212',
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-white dark:bg-android-dark text-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col font-sans">
-
-    <!-- Header -->
-    <header class="p-6 md:p-12">
-        <a href="dashboard.html" class="flex items-center gap-2 font-bold text-xl hover:underline">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back
-        </a>
+<!doctype html>
+<html lang="en" data-default-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Confessions Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body class="confession-page">
+    <header class="confess-header">
+      <h1>Confessions Page- KIND OF LIKE AN NGL PAGE</h1>
+      <button class="bare-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <span class="moon-icon" aria-hidden="true"></span>
+      </button>
     </header>
 
-    <main class="flex-grow flex items-center justify-center p-6">
-        <div class="bg-[#B10000] rounded-[3rem] p-12 md:p-20 max-w-4xl w-full shadow-2xl relative overflow-hidden text-white">
-
-            <div class="absolute -bottom-20 -left-20 p-12 opacity-10 pointer-events-none rotate-45">
-                 <div class="w-96 h-96 border-[40px] border-white rounded-lg"></div>
-            </div>
-
-            <h1 class="text-5xl md:text-7xl font-serif font-black mb-8 leading-tight">
-                Anonymously<br>yours.
-            </h1>
-            <p class="text-xl md:text-2xl text-white/70 mb-12 font-medium">
-                Confess anything. I won't know who you are. This goes straight to my vault.
-            </p>
-
-            <form id="confession-form" action="https://formspree.io/f/mnnqqlzq" method="POST" class="space-y-8">
-                <textarea
-                    name="confession"
-                    id="confession-input"
-                    class="w-full bg-black/20 backdrop-blur-md border-4 border-white/10 rounded-[2rem] p-8 text-3xl font-serif text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-all min-h-[250px]"
-                    placeholder="Tell me a secret..."
-                    required
-                ></textarea>
-
-                <button
-                    id="submit-btn"
-                    type="submit"
-                    class="w-full bg-white text-[#B10000] py-6 rounded-full text-3xl font-black uppercase tracking-[0.2em] hover:bg-gray-100 transition-colors active:scale-95 shadow-xl"
-                >
-                    Cast into Shadow
-                </button>
-            </form>
-
-            <div id="success-message" class="hidden absolute inset-0 bg-black flex flex-col items-center justify-center text-center p-12">
-                <div class="text-9xl mb-8">🌑</div>
-                <h2 class="text-5xl font-serif font-black text-white mb-4">Confessed.</h2>
-                <p class="text-xl text-gray-400 mb-12">Your secret is safe with the void.</p>
-            </div>
-        </div>
+    <main class="confess-shell">
+      <a class="outline-back" href="dashboard.html">&larr; BACK TO HOME</a>
+      <section class="confess-panel">
+        <span class="tab tab-blue tilt-tab">ANYNOMOUS!!!</span>
+        <h2>Your <span>confession</span><br>goes here</h2>
+        <p>Try to make it about me, cuz its NGL :) No names, no records, just static. Only visible to me</p>
+        <form action="https://api.web3forms.com/submit" method="post" data-confession-form>
+          <input type="hidden" name="access_key" value="8cc3d9ee-e59e-45e6-b423-939175376f7c">
+          <input type="hidden" name="subject" value="Snugelf confession">
+          <input type="hidden" name="from_name" value="Snugelf Confession Page">
+          <label for="confessionText">Write your truth</label>
+          <textarea id="confessionText" name="message" placeholder="Why are you so performative? How desperate can a man be?"></textarea>
+          <button type="submit">CONFESS &gt;</button>
+          <p class="form-status" data-form-status></p>
+        </form>
+      </section>
     </main>
-
-    <script src="theme.js"></script>
-    <script>
-        const form = document.getElementById('confession-form');
-        const success = document.getElementById('success-message');
-        const btn = document.getElementById('submit-btn');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            btn.disabled = true;
-            btn.textContent = "SENDING...";
-
-            const data = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    success.classList.remove('hidden');
-                    setTimeout(() => {
-                        window.location.href = 'dashboard.html';
-                    }, 2500);
-                } else {
-                    alert("The void is full. Try again later.");
-                    btn.disabled = false;
-                    btn.textContent = "Cast into Shadow";
-                }
-            } catch (error) {
-                alert("Connection to the void failed.");
-                btn.disabled = false;
-                btn.textContent = "Cast into Shadow";
-            }
-        });
-    </script>
-</body>
+  </body>
 </html>

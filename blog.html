@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snugelf Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body class="blog-page">
+    <header class="blog-header">
+      <a class="outline-back" href="dashboard.html">&larr; BACK TO HOME</a>
+      <div>
+        <h1>Snugelf Blogspot</h1>
+        <p>posts, drafts, crumbs, public emotional damage</p>
+      </div>
+      <button class="bare-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <span class="moon-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main class="blog-shell">
+      <section class="blog-feed" aria-label="Blog posts">
+        <article class="blog-post featured-post">
+          <span class="blog-label">PINNED</span>
+          <time datetime="2026-06-22">JUN 22, 2026</time>
+          <h2>I worked my ass off for this website and now I dunno what to write :(</h2>
+          <p>I wanted this page to feel like old Blogger, but if old Blogger had more red, blue, rain, badminton, and terrible decisions. This is where longer thoughts can live when the dashboard is too tiny.</p>
+          <a href="me.html">READ THE LORE</a>
+        </article>
+
+        <article class="blog-post">
+          <span class="blog-label red-label">DRAFT</span>
+          <time datetime="2026-06-20">JUN 20, 2026</time>
+          <h2>Notes from a website that refuses to behave</h2>
+          <p>Every layout eventually asks for one more media query. I am choosing peace, borders, and one dramatic blue button.</p>
+        </article>
+
+        <article class="blog-post">
+          <span class="blog-label green-label">VIBES</span>
+          <time datetime="2026-06-18">JUN 18, 2026</time>
+          <h2>Things currently saving my brain</h2>
+          <p>Peaky Blinders, Minecraft, the idea of rain, and pretending a personal website counts as having your life together.</p>
+        </article>
+      </section>
+
+      <aside class="blog-sidebar">
+        <section>
+          <h2>About this mess</h2>
+          <p>A louder, stranger, more personal version of Blogger. Built for quick posts and big feelings.</p>
+        </section>
+        <section>
+          <h2>Labels</h2>
+          <div class="blog-tags">
+            <span>personal</span>
+            <span>internet</span>
+            <span>music</span>
+            <span>ants</span>
+            <span>rain</span>
+          </div>
+        </section>
+        <section class="archive-box">
+          <h2>Archive</h2>
+          <a href="#">June 2026</a>
+          <a href="#">May 2026</a>
+          <a href="#">The void</a>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>

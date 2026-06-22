@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Let It Out</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body class="community-page">
+    <header class="thin-header">
+      <a class="small-back" href="dashboard.html">BACK TO HOME</a>
+      <button class="bare-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <span class="moon-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main class="community-shell">
+      <h1>Let It Out</h1>
+      <p>An opinion, hot take, quote anything!</p>
+
+      <form class="community-form" id="communityForm" data-community-form>
+        <span class="limit-label">Character Limit: 80 characters</span>
+        <label for="communityText">YOUR BULLSHIT GOES HERE:</label>
+        <textarea id="communityText" maxlength="80" placeholder="Type some GOOD SHIT..." required></textarea>
+      </form>
+
+      <button class="confirm-button" type="submit" form="communityForm">CONFIRM</button>
+      <a class="cancel-button" href="dashboard.html">CANCEL</a>
+
+      <aside class="warning-box">
+        <strong>&#9888;</strong>
+        <p>PLEASE REFRAIN FROM USING DELEGATORY, RACIST, OR JUST BAD LANGUAGE IN GENERAL.<br>PLEASE MOTHERFUCKER BE MATURE FOR ONCE &lt;3</p>
+      </aside>
+    </main>
+  </body>
+</html>
