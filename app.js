@@ -12,27 +12,54 @@
     });
   });
 
+  // Community Logic (Shared using jsonblob)
+  const BLOB_URL = "https://jsonblob.com/api/jsonBlob/1344265747192668160";
+  const fortyEightHours = 48 * 60 * 60 * 1000;
+
+  async function getSharedNotes() {
+    try {
+      const response = await fetch(BLOB_URL);
+      const data = await response.json();
+      const now = Date.now();
+      return (Array.isArray(data) ? data : []).filter(n => (now - n.timestamp) < fortyEightHours);
+    } catch (e) { return []; }
+  }
+
+  async function postSharedNote(content) {
+    const existing = await getSharedNotes();
+    const filtered = existing.filter(n => n.text !== content);
+    const updated = [{ text: content, timestamp: Date.now() }, ...filtered].slice(0, 20);
+    await fetch(BLOB_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updated)
+    });
+  }
+
   const communityForm = document.querySelector("[data-community-form]");
   if (communityForm) {
     const textarea = communityForm.querySelector("textarea");
-    communityForm.addEventListener("submit", (event) => {
+    const submitBtn = document.querySelector('button[form="communityForm"]');
+
+    communityForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (!textarea.value.trim()) {
-        textarea.focus();
-        return;
+      const content = textarea.value.trim();
+      if (!content) return textarea.focus();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "SENDING...";
       }
-      const note = textarea.value.trim();
-      let savedNotes = [];
+
       try {
-        savedNotes = JSON.parse(localStorage.getItem("snugelf-community-notes") || "[]");
-      } catch (error) {
-        localStorage.removeItem("snugelf-community-notes");
+        await postSharedNote(content);
+        window.location.href = "dashboard.html";
+      } catch (e) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "TRY AGAIN";
+        }
       }
-      if (!Array.isArray(savedNotes)) savedNotes = [];
-      const notes = [note, ...savedNotes.filter((savedNote) => savedNote !== note)].slice(0, 8);
-      localStorage.setItem("snugelf-community-note", note);
-      localStorage.setItem("snugelf-community-notes", JSON.stringify(notes));
-      window.location.href = "dashboard.html";
     });
   }
 
@@ -76,29 +103,22 @@
 
   const communityTile = document.querySelector(".tile-green .mini-bubble");
   if (communityTile) {
-    const savedCommunity = localStorage.getItem("snugelf-community-note");
-    let userNotes = [];
-    try {
-      userNotes = JSON.parse(localStorage.getItem("snugelf-community-notes") || "[]");
-    } catch (error) {
-      localStorage.removeItem("snugelf-community-notes");
-    }
-    const quotes = userNotes.length ? userNotes : [savedCommunity || "Pray for Gaza"];
+    let quotes = ["Pray for Gaza"];
 
-    const savedQuoteIndex = Number(localStorage.getItem("snugelf-community-index") || "0");
-    let quoteIndex = Number.isFinite(savedQuoteIndex) ? savedQuoteIndex % quotes.length : 0;
-    const setQuote = () => {
+    async function updateDisplay() {
+      const fresh = await getSharedNotes();
+      if (fresh.length) quotes = fresh.map(n => n.text);
+
+      const chosen = quotes[Math.floor(Math.random() * quotes.length)];
       communityTile.classList.add("quote-swap");
       window.setTimeout(() => {
-        communityTile.textContent = `"${quotes[quoteIndex]}"`;
+        communityTile.textContent = `"${chosen}"`;
         communityTile.classList.remove("quote-swap");
       }, 170);
-      localStorage.setItem("snugelf-community-index", String(quoteIndex));
-      quoteIndex = (quoteIndex + 1) % quotes.length;
-    };
+    }
 
-    setQuote();
-    window.setInterval(setQuote, 30000);
+    updateDisplay();
+    window.setInterval(updateDisplay, 30000);
   }
 
   const musicWidget = document.querySelector("[data-music-widget]");
